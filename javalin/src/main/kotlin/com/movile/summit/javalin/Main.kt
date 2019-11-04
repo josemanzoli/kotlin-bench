@@ -21,7 +21,7 @@ fun main() {
   }
 
   app.get("/users/:id") { ctx ->
-    val user = users.get(ctx.pathParam("id"))
+    val user = users.getOrDefault(ctx.pathParam("id"), User("not found", "not found", "not found"))
     ctx.json(user.toString())
   }
 }
