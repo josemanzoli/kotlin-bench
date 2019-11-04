@@ -41,13 +41,7 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-task fatJar(type: Jar) {
-    manifest {
-        attributes 'Implementation-Title': 'javalin',
-                'Implementation-Version': version,
-                'Main-Class': 'com.movile.summit.javalin.MainKt'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+jar{
+    baseName = 'spring'
+    version = version
 }
