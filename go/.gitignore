@@ -1,0 +1,13 @@
+.DS_Store
+# Binaries, plugins, libs
+*.dll
+*.dylib
+*.exe
+*.exe~
+*.so
+
+# Testing
+*.test
+*.tmp
+api-test
+
