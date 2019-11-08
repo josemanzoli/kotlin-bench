@@ -15,7 +15,7 @@ class MainApplication : KoinComponent {
     var users: ConcurrentHashMap<String, User> = ConcurrentHashMap()
 
     fun run() {
-        port(8080)
+        port(61543)
 
         post("/users") { request, response ->
 

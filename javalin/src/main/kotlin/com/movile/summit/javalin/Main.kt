@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 
 fun main() {
-  val app = Javalin.create().start(8080)
+  val app = Javalin.create().start(61543)
   val gson = Gson()
 
   val users = ConcurrentHashMap<String, User>()
