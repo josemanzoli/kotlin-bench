@@ -27,6 +27,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
     result, ok := users.Load(params["id"])
 
     if ok {
+	w.Header().Set("Content-Type", "application/json")
         json.NewEncoder(w).Encode(result)
     }
 }
@@ -43,8 +44,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
     user.ID = uuid.String()
 
     users.Store(user.ID, user)
-    
-    w.Write([]byte(user.ID))
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode(user)
 }
 
 
