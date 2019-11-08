@@ -14,10 +14,10 @@ fun main() {
   val users = ConcurrentHashMap<String, User>()
 
   app.post("/users") { ctx ->
-    val uuid = UUID.randomUUID().toString()
-    val parsed: User = gson.fromJson<User>(ctx.body(), User::class.java)
-    users[uuid] = parsed
-    ctx.result(uuid)
+    val newUser = Gson().fromJson<User>(ctx.body(), User::class.java)
+    val user = User(UUID.randomUUID().toString(), newUser.username, newUser.password)
+    users[user.id] = user
+    ctx.json(user)
   }
 
   app.get("/users/:id") { ctx ->

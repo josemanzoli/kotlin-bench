@@ -17,12 +17,14 @@ class MainApplication : KoinComponent {
     fun run() {
         port(8080)
 
-        post("/users") { request, _ ->
+        post("/users") { request, response ->
 
-            val user = Gson().fromJson<User>(request.body(), User::class.java)
-            val userId = UUID.randomUUID().toString()
-            users[userId] = user
-            userId
+            response.type("application/json")
+
+            val newUser = Gson().fromJson<User>(request.body(), User::class.java)
+            val user = User(UUID.randomUUID().toString(), newUser.username, newUser.password)
+            users[user.id] = user
+            Gson().toJson(user)
         }
 
         get("/users/:id") { request, response ->
