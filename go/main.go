@@ -17,7 +17,7 @@ func main() {
     router.HandleFunc("/users/{id}", GetUser).Methods("GET")
     router.HandleFunc("/users", CreateUser).Methods("POST")
 
-    log.Fatal(http.ListenAndServe(":8080", router))
+    log.Fatal(http.ListenAndServe(":61543", router))
 }
 
 
