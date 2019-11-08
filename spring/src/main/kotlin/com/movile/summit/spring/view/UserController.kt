@@ -12,12 +12,12 @@ class UserController {
     val users = ConcurrentHashMap<String, User>()
 
     @PostMapping
-    fun createUser(@RequestBody newUser: User) : String {
+    fun createUser(@RequestBody newUser: User) : User {
         val user = User(id = UUID.randomUUID().toString(),
             username = newUser.username,
             password = newUser.password)
         users.put(user.id!!, user)
-        return user.id
+        return user
     }
 
     @GetMapping("/{id}")
