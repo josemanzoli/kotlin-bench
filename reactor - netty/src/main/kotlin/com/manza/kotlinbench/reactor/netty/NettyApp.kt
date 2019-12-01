@@ -16,23 +16,22 @@ fun main(args: Array<String>) {
             .route { routes ->
                 routes.get("/users/{id}") { request, response ->
                     response.sendString(
-                            Mono.just(
-                                    users.getOrDefault(
-                                            request.param("id"),
-                                            User("not found", "not found", "not found")
-                                    ).toString()
+                            Mono.just(Gson().toJson(users.getOrDefault(
+                                    request.param("id"),
+                                    User("not found", "not found", "not found")
+                            ))
                             )
                     )
                 }.post("/users") { request, response ->
                     response.sendString(
-                            request.receive().retain().map { byteBuf ->
+                            request.receive().aggregate().map { byteBuf ->
                                 Gson().fromJson<User>(
                                         byteBuf.toString(Charset.defaultCharset()), User::class.java
                                 )
                             }.map { user ->
                                 val newUser = user.copy(id = UUID.randomUUID().toString())
                                 users.put(newUser.id!!, newUser)
-                                newUser.toString()
+                                Gson().toJson(newUser)
                             }
                     )
 
