@@ -1,7 +1,7 @@
-package com.movile.summit.spark
+package com.manza.kotlinbench.spark
 
 import com.google.gson.Gson
-import com.movile.summit.spark.model.User
+import com.manza.kotlinbench.spark.model.User
 import org.koin.standalone.KoinComponent
 import spark.Spark.get
 import spark.Spark.post
@@ -22,7 +22,8 @@ class MainApplication : KoinComponent {
             response.type("application/json")
 
             val newUser = Gson().fromJson<User>(request.body(), User::class.java)
-            val user = User(UUID.randomUUID().toString(), newUser.username, newUser.password)
+            val user =
+                User(UUID.randomUUID().toString(), newUser.username, newUser.password)
             users[user.id] = user
             Gson().toJson(user)
         }
@@ -30,7 +31,9 @@ class MainApplication : KoinComponent {
         get("/users/:id") { request, response ->
             response.type("application/json")
 
-            val user = users.getOrDefault(request.params(":id"), User("not found", "not_found", "not_found"))
+            val user = users.getOrDefault(request.params(":id"),
+                User("not found", "not_found", "not_found")
+            )
             Gson().toJson(user)
         }
     }

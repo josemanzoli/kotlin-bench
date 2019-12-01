@@ -1,4 +1,4 @@
-package com.movile.summit.spark.model
+package com.manza.kotlinbench.spark.model
 
 data class User (
         val id : String,

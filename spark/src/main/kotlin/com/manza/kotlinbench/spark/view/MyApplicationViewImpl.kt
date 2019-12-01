@@ -1,4 +1,4 @@
-package com.movile.summit.spark.view
+package com.manza.kotlinbench.spark.view
 
 import com.google.gson.Gson
 
