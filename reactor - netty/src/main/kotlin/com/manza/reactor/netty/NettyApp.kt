@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
                     )
                 }.post("/users") { request, response ->
                     response.sendString(
-                            request.receive().retain().map { byteBuf ->
+                            request.receive().aggregate().map { byteBuf ->
                                 Gson().fromJson<User>(
                                         byteBuf.toString(Charset.defaultCharset()), User::class.java
                                 )
