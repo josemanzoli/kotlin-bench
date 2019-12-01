@@ -1,6 +1,6 @@
-package com.movile.summit.spring.view
+package com.manza.kotlinbench.spring.view
 
-import com.movile.summit.spring.model.User
+import com.manza.kotlinbench.spring.model.User
 import org.springframework.web.bind.annotation.*
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -13,9 +13,11 @@ class UserController {
 
     @PostMapping
     fun createUser(@RequestBody newUser: User) : User {
-        val user = User(id = UUID.randomUUID().toString(),
+        val user = User(
+            id = UUID.randomUUID().toString(),
             username = newUser.username,
-            password = newUser.password)
+            password = newUser.password
+        )
         users.put(user.id!!, user)
         return user
     }

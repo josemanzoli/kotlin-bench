@@ -7,8 +7,8 @@ plugins {
     kotlin("plugin.spring") version "1.3.50"
 }
 
-group = "com.manza.spring"
-version = "0.0.1-SNAPSHOT"
+group = "com.manza.kotlinbench"
+version = "1.0.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
