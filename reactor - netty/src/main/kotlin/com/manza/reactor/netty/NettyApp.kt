@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
                             }.map { user ->
                                 val newUser = user.copy(id = UUID.randomUUID().toString())
                                 users.put(newUser.id!!, newUser)
-                                newUser.toString()
+                                Gson().toJson(newUser)
                             }
                     )
 
