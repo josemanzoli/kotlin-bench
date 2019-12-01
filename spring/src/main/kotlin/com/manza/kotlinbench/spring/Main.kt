@@ -1,4 +1,4 @@
-package com.movile.summit.spring
+package com.manza.kotlinbench.spring
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
