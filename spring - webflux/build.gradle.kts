@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.3.50"
 }
 
-group = "com.manza.kotlinbench"
+group = "com.manza.kotlinbench.springwebflux"
 version = "1.0.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 

@@ -1,4 +1,4 @@
-package com.manza.reactor.netty
+package com.manza.kotlinbench.reactor.netty
 
 import com.google.gson.Gson
 import reactor.core.publisher.Mono

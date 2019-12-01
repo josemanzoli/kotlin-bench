@@ -32,7 +32,7 @@ configurations {
     compile.exclude module: "spring-boot-starter-tomcat"
 }
 
-group 'com.manza.kotlinbench'
+group 'com.manza.kotlinbench.spring'
 version '1.0-SNAPSHOT'
 
 compileKotlin {

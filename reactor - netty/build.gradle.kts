@@ -4,8 +4,8 @@ plugins {
     kotlin("jvm") version "1.3.50"
 }
 
-group = "com.manza.reactor"
-version = "0.0.1-SNAPSHOT"
+group = "com.manza.kotlinbench.reactor"
+version = "1.0.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -23,5 +23,21 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
+    }
+}
+
+tasks {
+    register("fatJar", Jar::class.java) {
+        archiveClassifier.set("all")
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        manifest {
+            attributes["Main-Class"] = "com.manza.kotlinbench.reactor.netty.NettyAppKt"
+        }
+        from(configurations.runtimeClasspath.get()
+                .onEach { println("add from dependencies: ${it.name}") }
+                .map { if (it.isDirectory) it else zipTree(it) })
+        val sourcesMain = sourceSets.main.get()
+        sourcesMain.allSource.forEach { println("add from sources: ${it.name}") }
+        from(sourcesMain.output)
     }
 }
