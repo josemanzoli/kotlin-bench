@@ -16,11 +16,10 @@ fun main(args: Array<String>) {
             .route { routes ->
                 routes.get("/users/{id}") { request, response ->
                     response.sendString(
-                            Mono.just(
-                                    users.getOrDefault(
-                                            request.param("id"),
-                                            User("not found", "not found", "not found")
-                                    ).toString()
+                            Mono.just(Gson().toJson(users.getOrDefault(
+                                    request.param("id"),
+                                    User("not found", "not found", "not found")
+                            ))
                             )
                     )
                 }.post("/users") { request, response ->
@@ -32,7 +31,7 @@ fun main(args: Array<String>) {
                             }.map { user ->
                                 val newUser = user.copy(id = UUID.randomUUID().toString())
                                 users.put(newUser.id!!, newUser)
-                                newUser.toString()
+                                Gson().toJson(newUser)
                             }
                     )
 
