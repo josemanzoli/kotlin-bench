@@ -1,4 +1,4 @@
-package com.manza.spring.springwebflux
+package com.manza.kotlinbench.springwebflux
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

@@ -1,4 +1,4 @@
-package com.manza.spring.springwebflux
+package com.manza.kotlinbench.springwebflux
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
