@@ -20,7 +20,6 @@ func main() {
     log.Fatal(http.ListenAndServe(":61543", router))
 }
 
-
 func GetUser(w http.ResponseWriter, r *http.Request) {
     params := mux.Vars(r)
 
@@ -47,9 +46,6 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(user)
 }
-
-
-
 
 type User struct {
     ID        string   `json:"id,omitempty"`

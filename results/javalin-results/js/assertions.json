@@ -1,0 +1,10 @@
+{
+  "simulation": "kotlinbench.kotlinBench",
+  "simulationId": "kotlinbench",
+  "start": 1575293343969,
+  "description": "",
+  "scenarios": ["Users"],
+  "assertions": [
+
+  ]
+}
