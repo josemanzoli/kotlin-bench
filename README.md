@@ -33,23 +33,12 @@ Just clone this repository and start to build all the projects for you to be abl
 
 #### How to Build the projects ####
 
-Follow the steps bellow for each project
-
-* __go__: 
+Just execute the build script. 
 ```
-$ cd $HOME/kotlin-bench/go/
-$ go build 
+$ cd $HOME/kotlin-bench/
+$ sh build-all.sh 
 ``` 
-* __javalin__, __reactor-netty__ and __spark__: When you start to build the Gradle projects and if you have never use Gradle before, go get a cup of coffee after you hit the enter to build the project. :)
-```
-$ cd $HOME/kotlin-bench/[name of the project]/
-$ ./gradlew clean build fatJar
-```
-* __spring-webflux__ and __spring__:
-```
-$ cd $HOME/kotlin-bench/[name of the project]/
-$ ./gradlew clean build
-```
+If you would like to know how to build individually, just take a look at the script.
 
 #### How to run the projects ####
 
